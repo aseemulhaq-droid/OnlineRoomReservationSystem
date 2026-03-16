@@ -120,7 +120,7 @@ body, html {
 /* Title shine + scale subtle */
 h1 {
     font-size: clamp(2.2rem, 7vh, 4.5rem);
-    margin: 0.4rem 0;
+    margin: 0.4rem 0 0.1rem;
     font-weight: 800;
     letter-spacing: -2.2px;
     background: linear-gradient(90deg, #ffffff, var(--teal-accent), var(--blue-accent), #ffffff);
@@ -128,10 +128,9 @@ h1 {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 7s linear infinite;
+    animation: shine 7s linear infinite, titlePop 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both;
     transform: scale(0.95);
     opacity: 0;
-    animation: titlePop 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s forwards;
 }
 
 @keyframes titlePop {
@@ -140,6 +139,18 @@ h1 {
 
 @keyframes shine {
     to { background-position: 300% center; }
+}
+
+/* ===== BRAND TAG ===== */
+.brand-tag {
+    font-size: clamp(0.7rem, 1.8vh, 0.88rem);
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: var(--teal-accent);
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out 1.0s forwards;
 }
 
 h2 {
@@ -318,7 +329,8 @@ h2 {
     <span class="brand-logo">🏖️</span>
 
     <h1>OceanView</h1>
-    <h2>Luxury Resort </h2>
+    <div class="brand-tag">AH – 27 ♡</div>
+    <h2>Luxury Resort</h2>
 
     <p class="description">
         Experience a world where the sapphire sky meets the emerald sea. 

@@ -189,7 +189,7 @@
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
-                    <div><label>Check-In</label><input type="date" id="checkInDate" name="checkInDate" class="form-control" min="<%= today %>" required onchange="calculateTotal()"></div>
+                    <div><label>Check-In</label><input type="date" id="checkInDate" name="checkInDate" class="form-control" min="<%= today %>" required onchange="updateCheckOutMin(); calculateTotal();"></div>
                     <div><label>Check-Out</label><input type="date" id="checkOutDate" name="checkOutDate" class="form-control" required onchange="calculateTotal()"></div>
                     <div><label>Occupants</label><input type="number" name="numberOfGuests" class="form-control" min="1" max="10" value="1" required></div>
                 </div>
@@ -228,6 +228,25 @@
         document.getElementsByName('guestPhone')[0].addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9]/g, '');
         });
+
+        // NEW FUNCTION: Update check-out minimum date when check-in is selected
+        function updateCheckOutMin() {
+            const checkInDate = document.getElementById('checkInDate').value;
+            const checkOutInput = document.getElementById('checkOutDate');
+            
+            if (checkInDate) {
+                // Set check-out minimum to one day after check-in
+                const checkIn = new Date(checkInDate);
+                checkIn.setDate(checkIn.getDate() + 1);
+                const minCheckOut = checkIn.toISOString().split('T')[0];
+                checkOutInput.min = minCheckOut;
+                
+                // If current check-out is before new minimum, clear it
+                if (checkOutInput.value && checkOutInput.value <= checkInDate) {
+                    checkOutInput.value = '';
+                }
+            }
+        }
 
         function updateRoomDetails() {
             const select = document.getElementById('roomId');
