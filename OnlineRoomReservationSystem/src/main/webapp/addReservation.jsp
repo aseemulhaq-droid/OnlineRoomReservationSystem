@@ -213,7 +213,7 @@
                 </div>
 
                 <div class="btn-group">
-                    <button type="submit" class="btn btn-submit"><i class="fas fa-concierge-bell"></i> Book Luxury Stay</button>
+                    <button type="submit" class="btn btn-submit"><i class="fas fa-concierge-bell"></i> Book Luxury Stay ♡</button>
                     <button type="reset" class="btn" style="background: rgba(255,255,255,0.05); color: var(--dim);">Clear</button>
                 </div>
             </form>

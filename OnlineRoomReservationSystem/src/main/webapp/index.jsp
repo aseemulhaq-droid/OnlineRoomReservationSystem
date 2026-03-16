@@ -342,7 +342,7 @@ h2 {
             <i class="fas fa-door-open"></i> Enter Resort
         </a>
         <a href="help.jsp" class="btn btn-outline">
-            <i class="fas fa-question-circle"></i> Need Help?
+            <i class="fas fa-question-circle"></i> Need Help ?
         </a>
     </div>
 
